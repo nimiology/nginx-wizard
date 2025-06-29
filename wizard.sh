@@ -89,8 +89,8 @@ mkdir -p "$MEDIA_DIR"
 
 # permissions
 echo "Setting permissions for static and media files..."
-chown -R www-data:www-data /var/www/django/static /var/www/django/media
-chmod -R 755 /var/www/django/static /var/www/django/media
+chown -R www-data:www-data "$STATIC_DIR" "$MEDIA_DIR"
+chmod -R 755 "$STATIC_DIR" "$MEDIA_DIR"
 echo "✅ Static and media directories are ready and permissioned."
 
 # Test & reload Nginx
