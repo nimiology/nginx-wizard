@@ -83,10 +83,15 @@ EOF
 echo "🔗 Enabling Nginx site..."
 sudo ln -sf "$NGINX_CONF_PATH" "$NGINX_SITES_ENABLED"
 
+# Create dirs if they don't exist
+mkdir -p "$STATIC_DIR"
+mkdir -p "$MEDIA_DIR"
+
 # permissions
 echo "Setting permissions for static and media files..."
 chown -R www-data:www-data /var/www/django/static /var/www/django/media
 chmod -R 755 /var/www/django/static /var/www/django/media
+echo "✅ Static and media directories are ready and permissioned."
 
 # Test & reload Nginx
 echo "🔍 Testing Nginx config..."
