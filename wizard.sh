@@ -43,7 +43,7 @@ echo "📝 Creating Nginx config for $DOMAIN_NAME..."
 sudo tee "$NGINX_CONF_PATH" > /dev/null <<EOF
 server {
     listen 80;
-    server_name $DOMAIN_NAME;
+    server_name $DOMAIN_NAME ;
 
     location /static/ {
         alias $STATIC_ROOT/;
