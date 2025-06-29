@@ -89,7 +89,7 @@ mkdir -p "$MEDIA_ROOT"
 
 # permissions
 echo "Setting permissions for static and media files..."
-chown -R www-data:www-data "$STATIC_ROOOT" "$MEDIA_ROOT"
+chown -R www-data:www-data "$STATIC_ROOT" "$MEDIA_ROOT"
 chmod -R 755 "$STATIC_ROOT" "$MEDIA_ROOT"
 echo "✅ Static and media directories are ready and permissioned."
 
