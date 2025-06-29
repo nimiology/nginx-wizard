@@ -18,7 +18,7 @@ else
 fi
 
 # Prompt for domain
-read -p "🔸 Enter your domain name (e.g. api.darchasb.ir): " DOMAIN_NAME
+read -p "🔸 Enter your domain name (e.g. domain.ir): " DOMAIN_NAME
 if [[ -z "$DOMAIN_NAME" ]]; then
   echo "❌ Domain name is required. Exiting."
   exit 1
