@@ -20,7 +20,7 @@ A one-command wizard to auto-configure **NGINX** with **SSL (Let's Encrypt)**, *
 Run the wizard directly from your server:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/nimiology/nginx-wizard/main/setup-nginx-ssl-ws-proxy.sh)
+bash <(curl -s https://raw.githubusercontent.com/nimiology/nginx-wizard/main/wizard.sh)
 ```
 
 It will ask:
