@@ -84,13 +84,13 @@ echo "🔗 Enabling Nginx site..."
 sudo ln -sf "$NGINX_CONF_PATH" "$NGINX_SITES_ENABLED"
 
 # Create dirs if they don't exist
-mkdir -p "$STATIC_DIR"
-mkdir -p "$MEDIA_DIR"
+mkdir -p "$STATIC_ROOT"
+mkdir -p "$MEDIA_ROOT"
 
 # permissions
 echo "Setting permissions for static and media files..."
-chown -R www-data:www-data "$STATIC_DIR" "$MEDIA_DIR"
-chmod -R 755 "$STATIC_DIR" "$MEDIA_DIR"
+chown -R www-data:www-data "$STATIC_ROOOT" "$MEDIA_ROOT"
+chmod -R 755 "$STATIC_ROOT" "$MEDIA_ROOT"
 echo "✅ Static and media directories are ready and permissioned."
 
 # Test & reload Nginx
