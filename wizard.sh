@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🌐 Welcome to the Darchasb Nginx Auto Configurator!"
+echo "🌐 Welcome to the Nginx Auto Configurator!"
 echo "📦 This script will install and configure:"
 echo "  🔹 Nginx"
 echo "  🔹 SSL via Let's Encrypt"
