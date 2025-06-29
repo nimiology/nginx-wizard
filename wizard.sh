@@ -100,7 +100,7 @@ fi
 
 # Obtain SSL certificate
 echo "🔐 Requesting Let's Encrypt SSL certificate..."
-sudo certbot --nginx -d "$DOMAIN_NAME" -d "www.$DOMAIN_NAME"
+sudo certbot --nginx
 
 echo
 echo "🎉 Done! Your domain https://$DOMAIN_NAME is now:"
