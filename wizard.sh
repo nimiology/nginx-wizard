@@ -47,13 +47,11 @@ server {
 
     location /static/ {
         alias $STATIC_ROOT/;
-        expires 30d;
         access_log off;
     }
 
     location /media/ {
         alias $MEDIA_ROOT/;
-        expires 30d;
         access_log off;
     }
 
