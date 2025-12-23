@@ -24,6 +24,14 @@ if [[ -z "$DOMAIN_NAME" ]]; then
   exit 1
 fi
 
+# Prompt for WWW support
+read -p "🔸 Do you want to add www prefix? (y/n): " ADD_WWW
+if [[ "$ADD_WWW" == "y" || "$ADD_WWW" == "Y" ]]; then
+    SERVER_NAMES="$DOMAIN_NAME www.$DOMAIN_NAME"
+else
+    SERVER_NAMES="$DOMAIN_NAME"
+fi
+
 # Prompt for WebSocket support
 read -p "🔸 Do you need WebSocket support? (y/n): " ENABLE_WS
 
@@ -43,7 +51,7 @@ echo "📝 Creating Nginx config for $DOMAIN_NAME..."
 sudo tee "$NGINX_CONF_PATH" > /dev/null <<EOF
 server {
     listen 80;
-    server_name $DOMAIN_NAME;
+    server_name $SERVER_NAMES;
 
     location /static/ {
         alias $STATIC_ROOT/;
