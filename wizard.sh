@@ -18,33 +18,33 @@ else
 fi
 
 # Prompt for domain
-read -p "🔸 Enter your domain name (e.g. domain.ir): " DOMAIN_NAME
-if [[ -z "$DOMAIN_NAME" ]]; then
+printf "🔸 Enter your domain name (e.g. domain.ir): " && read DOMAIN_NAME
+if [ -z "$DOMAIN_NAME" ]; then
   echo "❌ Domain name is required. Exiting."
   exit 1
 fi
 
 # Prompt for WWW support
-read -p "🔸 Do you want to add www prefix? (y/n): " ADD_WWW
-if [[ "$ADD_WWW" == "y" || "$ADD_WWW" == "Y" ]]; then
+printf "🔸 Do you want to add www prefix? (y/n): " && read ADD_WWW
+if [ "$ADD_WWW" = "y" ] || [ "$ADD_WWW" = "Y" ]; then
     SERVER_NAMES="$DOMAIN_NAME www.$DOMAIN_NAME"
 else
     SERVER_NAMES="$DOMAIN_NAME"
 fi
 
 # Prompt for WebSocket support
-read -p "🔸 Do you need WebSocket support? (y/n): " ENABLE_WS
+printf "🔸 Do you need WebSocket support? (y/n): " && read ENABLE_WS
 
 # Prompt for proxy backend
-read -p "🔸 Enter your backend address (default: http://127.0.0.1:8000): " PROXY_PASS
+printf "🔸 Enter your backend address (default: http://127.0.0.1:8000): " && read PROXY_PASS
 PROXY_PASS=${PROXY_PASS:-http://127.0.0.1:8000}
 
 # Prompt for static root
-read -p "🔸 Enter your static root directory (default: /var/www/static): " STATIC_ROOT
+printf "🔸 Enter your static root directory (default: /var/www/static): " && read STATIC_ROOT
 STATIC_ROOT=${STATIC_ROOT:-/var/www/static}
 
 # Prompt for media root
-read -p "🔸 Enter your media root directory (default: /var/www/media): " MEDIA_ROOT
+printf "🔸 Enter your media root directory (default: /var/www/media): " && read MEDIA_ROOT
 MEDIA_ROOT=${MEDIA_ROOT:-/var/www/media}
 
 # Define paths
@@ -79,7 +79,7 @@ server {
 EOF
 
 # Add WebSocket headers if requested
-if [[ "$ENABLE_WS" == "y" || "$ENABLE_WS" == "Y" ]]; then
+if [ "$ENABLE_WS" = "y" ] || [ "$ENABLE_WS" = "Y" ]; then
   echo "🧩 Enabling WebSocket headers..."
   sudo tee -a "$NGINX_CONF_PATH" > /dev/null <<EOF
         proxy_set_header Upgrade \$http_upgrade;
@@ -132,4 +132,4 @@ echo "  🔹 SSL-enabled"
 echo "  🔹 Proxying to: $PROXY_PASS"
 echo "  🔹 Static from: $STATIC_ROOT"
 echo "  🔹 Media from:  $MEDIA_ROOT"
-[[ "$ENABLE_WS" == "y" || "$ENABLE_WS" == "Y" ]] && echo "  🔹 WebSocket ready ✅"
+[ "$ENABLE_WS" = "y" ] || [ "$ENABLE_WS" = "Y" ] && echo "  🔹 WebSocket ready ✅"
